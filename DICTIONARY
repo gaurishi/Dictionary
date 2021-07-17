@@ -1,0 +1,23 @@
+import json
+
+def translate(word):
+    if word.upper() in data:
+        return data[word.upper()]
+        
+    elif word.title() in data:
+        return data[word.title()]
+        
+    elif word.lower() in data:
+        return data[word.lower()]
+        
+    else:
+        return("No such word exist")
+        
+data = json.load(open("data.json"))
+word = input("Which word meaning you want to know:- ")
+output = translate(word)
+if type(output) == list:
+    for item in output:
+        print(item)
+else:
+    print(output)
